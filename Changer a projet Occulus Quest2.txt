@@ -1,0 +1,43 @@
+Changer à projet Occulus Quest2 
+https://www.youtube.com/watch?v=BGlcH6pkCzs
+### Build Settings 6:33 ###
+File -> Build Settings
+	Platform Android -> Run Device : Changer pour Occulust Quest (IWMH...)
+	Click sur bouton Switch Plateform
+
+### Player Settings 7:32 ###
+File -> Build Settings -> Player Settings
+	Player -> Other Settings -> Graphic API's
+		Drag OpenGLES3 au dessus de Vulkan
+	Player -> Other Settings -> Rendering -> Color Space
+		Changer de Gamma à Linear
+	Player -> Other Settings -> Identification -> Minimum API Level
+		Changer de Android 4.4 à Android 6 (Marshmellow)
+
+### Package Manager 8:46 ###
+Window -> Package Manager
+	Aller dans Packages Unity (Au lieu de In Project en haut à gauche)
+	Installer plugin "XR Plugin Management"
+		Si on a des erreurs quand on ajoute le plugin, prendre la version 3.2.16 au lieu de 3.2.17 car prof a eu des problèmes avec la 3.2.17
+
+### Project Settings 10:58 ###
+Edit -> Project Settings
+	Player -> Company Name & Product Name
+		Mettre un nom significatif, ça va être les noms vu dans l'occulus
+	XR Plug-in Management -> Plug-in Providers
+		Choisir Oculus
+
+### Assets Store 12:20 ###
+Aller sur assetStore.unity.com
+	Rechercher l'asset "Oculus Intergration" et le télécharger
+	Dans le package Manager, clicker sur "Import" pour importer le package dans notre projet
+	Accepter toutes les updates, upgrades et restarts
+	
+### Build le projet 15:45 ###
+File -> Build Settings
+	Clicker sur "Add Open Scenes"
+	Clicker sur "Build and Run"
+		Le build va rester dans le menu application (Unknowned Sources).
+		
+### Afficher ce qu'on voit à l'écran 18:55 ###
+Aller sur oculus.com/casting

@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace JoyCon
 {
+    // Blame Haitham
+
     public enum RumbleType
     {
         ConstantRumble,

@@ -2,10 +2,12 @@
 
 namespace JoyCon
 {
+    // Blame Jimmy
+
     public class JoyConMovement : JoyConBehaviour
     {
         [Header("DEBUG movement")]
-        [SerializeField] public bool isDebug;
+        public bool isDebug;
 
         [Header("References")]
         [SerializeField] private Rigidbody body;
