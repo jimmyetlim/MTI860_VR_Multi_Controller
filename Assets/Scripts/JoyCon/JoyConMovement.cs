@@ -61,13 +61,30 @@ namespace JoyCon
             }
 
 #if DEBUG
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-            transform.Rotate(0.0f, moveHorizontal * constSpeed * 2, 0.0f);
-            transform.Translate(0, 0,  moveVertical * constSpeed / 20);
+            movement_wasd();
 #endif
         }
 
         public bool IsWalking() => Mathf.Abs(_gyroMagnitude.Total) > 1;
+
+
+        private void movement_wasd()
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+            transform.Rotate(0.0f, moveHorizontal * constSpeed * 2, 0.0f);
+            transform.Translate(0, 0, moveVertical * constSpeed / 20);
+        }
+    }
+
+
+
+    public enum ChoiceOfMovement
+    {
+        wasd = 1,
+        teleport = 2, 
+        joystick = 3, 
+        joycon = 4, 
+        omni = 5
     }
 }
