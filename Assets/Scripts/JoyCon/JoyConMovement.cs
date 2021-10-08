@@ -6,9 +6,6 @@ namespace JoyCon
 
     public class JoyConMovement : JoyConBehaviour
     {
-        [Header("DEBUG movement")]
-        public bool isDebug;
-
         [Header("References")]
         [SerializeField] private Rigidbody body;
     
@@ -26,65 +23,32 @@ namespace JoyCon
     
         protected override void Start()
         {
-            if(!isDebug)
-            {
-                base.Start();
-                _gyroMagnitude = new HistoricalData(5);
-                _speed = 0;
-            }            
+            base.Start();
+            _gyroMagnitude = new HistoricalData(5);
+            _speed = 0;
         }
 
         private void Update()
         {
-            if(!isDebug)
-            {
-                Joycon j = JoyConManager.GetJoycon(JcLegInd);
-                _playerDirection = j.GetButton(Joycon.Button.SHOULDER_2) ? Vector3.back : Vector3.forward;
-            }           
+            Joycon j = JoyConManager.GetJoycon(JcLegInd);
+            _playerDirection = j.GetButton(Joycon.Button.SHOULDER_2) ? Vector3.back : Vector3.forward;      
         }
 
         private void FixedUpdate()
         {
-            if(!isDebug)
-            {
-                Joycon j = JoyConManager.GetJoycon(JcLegInd);
-                Joycon jArm = JoyConManager.GetJoycon(JcArmInd);
+            Joycon j = JoyConManager.GetJoycon(JcLegInd);
+            Joycon jArm = JoyConManager.GetJoycon(JcArmInd);
 
-                _gyroMagnitude.AddData(j.GetGyro().magnitude);
+            _gyroMagnitude.AddData(j.GetGyro().magnitude);
 
-                _speed = IsWalking() ? 4 : 0;
+            _speed = IsWalking() ? 4 : 0;
 
-                body.transform.Rotate(0, jArm.GetStick()[0] * constRotation * Time.fixedDeltaTime, 0);
+            body.transform.Rotate(0, jArm.GetStick()[0] * constRotation * Time.fixedDeltaTime, 0);
 
-                body.AddRelativeForce(_playerDirection * (_speed * _gyroMagnitude.Total * constSpeed));
-                body.AddForce(Vector3.up * constUpForce);
-            }
-
-#if DEBUG
-            movement_wasd();
-#endif
+            body.AddRelativeForce(_playerDirection * (_speed * _gyroMagnitude.Total * constSpeed));
+            body.AddForce(Vector3.up * constUpForce);
         }
 
         public bool IsWalking() => Mathf.Abs(_gyroMagnitude.Total) > 1;
-
-
-        private void movement_wasd()
-        {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-            transform.Rotate(0.0f, moveHorizontal * constSpeed * 2, 0.0f);
-            transform.Translate(0, 0, moveVertical * constSpeed / 20);
-        }
-    }
-
-
-
-    public enum ChoiceOfMovement
-    {
-        wasd = 1,
-        teleport = 2, 
-        joystick = 3, 
-        joycon = 4, 
-        omni = 5
     }
 }
