@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Movements;
 using UnityEngine;
 
 public class MovementGen : MonoBehaviour
@@ -30,10 +31,21 @@ public class MovementGen : MonoBehaviour
     {
         if(selectedMovement != currentMovement)
         {
+            if (components[currentMovement] is IScriptDeMovement)
+            {
+
+                ((IScriptDeMovement) components[currentMovement]).BeforeDisable();
+            }
+
             components[currentMovement].enabled = false;
             components[selectedMovement].enabled = true;
             currentMovement = selectedMovement;
         }
+    }
+
+    public void ChangeMovement(ChoiceOfMovement newChoice)
+    {
+        selectedMovement = newChoice;
     }
 
     public enum ChoiceOfMovement

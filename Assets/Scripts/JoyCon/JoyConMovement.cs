@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Movements;
+using UnityEngine;
 
 namespace JoyCon
 {
     // Blame Jimmy
 
-    public class JoyConMovement : JoyConBehaviour
+    public class JoyConMovement : JoyConBehaviour, IScriptDeMovement
     {
         [Header("References")]
         [SerializeField] private Rigidbody body;
@@ -50,5 +51,9 @@ namespace JoyCon
         }
 
         public bool IsWalking() => Mathf.Abs(_gyroMagnitude.Total) > 1;
+        public void BeforeDisable()
+        {
+            // TODO throw new System.NotImplementedException();
+        }
     }
 }

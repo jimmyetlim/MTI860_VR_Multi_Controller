@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Movements;
 using UnityEngine;
 
-public class WasdMovement : MonoBehaviour
+public class WasdMovement : MonoBehaviour, IScriptDeMovement
 {
+    /*
+        Si version non-vr, utilise WASD.
+        Si utilise la version VR, utilise les joysticks
+     */
+    
     [Header("References")]
     [SerializeField] private Rigidbody body;
 
@@ -25,5 +31,10 @@ public class WasdMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         transform.Rotate(0.0f, moveHorizontal * constSpeed * 2, 0.0f);
         transform.Translate(0, 0, moveVertical * constSpeed / 20);
+    }
+
+    public void BeforeDisable()
+    {
+        //TODO throw new System.NotImplementedException();
     }
 }

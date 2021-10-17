@@ -1,0 +1,1 @@
+Bug WASDmovement avec controllers : quand tourne + avance au max, Character est propulser

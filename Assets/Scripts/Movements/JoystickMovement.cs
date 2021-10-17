@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Movements;
 using UnityEngine;
 
-public class JoystickMovement : MonoBehaviour
+// Useless, voir WASD movement
+public class JoystickMovement : MonoBehaviour, IScriptDeMovement
 {
     [Header("References")]
     [SerializeField] private Rigidbody body;
@@ -17,5 +19,10 @@ public class JoystickMovement : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BeforeDisable()
+    {
+        // TODO throw new System.NotImplementedException();
     }
 }
