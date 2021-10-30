@@ -1,0 +1,22 @@
+-General Element
+	- [Urgent]Correct le movement WASD, Live il est pire 😋
+		-ajuster graviter et masse pour ne plus voler
+
+	- [Easy Level] Hit Ennemie to trigger on hit event
+		- Ajouter collider au marteaux
+		- detecter la collission ennemi et marteaux
+		- On collision doit executer des fonction diff.
+			1- On collision Stop time, mettre temps dans playerpref et changement de scene vers une salle d'attente
+			2- On hit changement de scene (les boutton 2d fonctionne mal)
+
+	- [Easy Level] Main Menu ---- Changement de scene et choisir le mode de de controle
+		- Changement de scene est facile à trouver comme TUTO
+		- PlayerPrefs pour garder en mémoire le mode de controle!
+		- on start. on load le bon selon le playerpref
+
+	- [Med-high level] Omni 
+		- Plug API
+		- interpreter data
+		- move
+
+	- [Easy - Med Level] Level design

@@ -1,0 +1,8 @@
+Bug Unity Général : 
+	- [Done!]Incapable que lorsque j'appuie sur "Play", le jeu soit render dans mon casque. Je suis obligé de build and run à chaque fois. Problème : Incapable de modifier de mouvement en VR
+Bug WASDmovement avec VR controllers : 
+	- [Pire]quand tourne + avance au max, Character est propulser
+Bug Teleport : 
+	- Teleport la camera sans notre ami le peinguin :(.
+	- Marche juste si on bouge (Script WASD) avant
+	
