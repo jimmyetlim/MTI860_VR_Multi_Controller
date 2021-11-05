@@ -1,6 +1,5 @@
 -General Element
-	- [Urgent]Correct le movement WASD, Live il est pire 😋
-		-ajuster graviter et masse pour ne plus voler
+
 
 	- [Easy Level] Hit Ennemie to trigger on hit event
 		- Ajouter collider au marteaux
@@ -20,3 +19,8 @@
 		- move
 
 	- [Easy - Med Level] Level design
+
+
+Fixed, mais à valider
+	- [Urgent]Correct le movement WASD, Live il est pire 😋
+		-ajuster graviter et masse pour ne plus voler
