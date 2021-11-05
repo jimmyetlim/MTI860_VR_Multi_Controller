@@ -38,13 +38,10 @@ namespace JoyCon
         private void FixedUpdate()
         {
             Joycon j = JoyConManager.GetJoycon(JcLegInd);
-            Joycon jArm = JoyConManager.GetJoycon(JcArmInd);
 
             _gyroMagnitude.AddData(j.GetGyro().magnitude);
 
             _speed = IsWalking() ? 4 : 0;
-
-            body.transform.Rotate(0, jArm.GetStick()[0] * constRotation * Time.fixedDeltaTime, 0);
 
             body.AddRelativeForce(_playerDirection * (_speed * _gyroMagnitude.Total * constSpeed));
             body.AddForce(Vector3.up * constUpForce);

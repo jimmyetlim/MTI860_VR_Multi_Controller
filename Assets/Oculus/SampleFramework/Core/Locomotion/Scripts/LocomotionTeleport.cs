@@ -761,6 +761,8 @@ public class LocomotionTeleport : MonoBehaviour
 	/// </summary>
 	public event Action<Transform, Vector3, Quaternion> Teleported;
 
+
+	public Transform player;
 	/// <summary>
 	/// Perform the actual teleport.
 	/// Note that warp transitions do not call this function and instead moves the game object 
@@ -770,7 +772,7 @@ public class LocomotionTeleport : MonoBehaviour
 	{
 		var character = LocomotionController.CharacterController;
         character.enabled = false;
-        var characterTransform = character.transform;
+        var characterTransform = player;
 		var destTransform = _teleportDestination.OrientationIndicator;
 
 		Vector3 destPosition = destTransform.position;
@@ -785,7 +787,7 @@ public class LocomotionTeleport : MonoBehaviour
 #endif
 		if (Teleported != null)
 		{
-			Teleported(characterTransform, destPosition, destRotation);
+			Teleported(player, destPosition, destRotation);
 		}
 
 		characterTransform.position = destPosition;
