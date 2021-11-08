@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         time = 0;
-        Coroutine timerRoutine = StartCoroutine("TimerExecute");
+        timerRoutine = StartCoroutine("TimerExecute");
     }
 
 	private void FixedUpdate()
@@ -29,6 +29,7 @@ public class Timer : MonoBehaviour
 	public void Stop()
 	{
         timerStop = true;
+        PlayerPrefs.SetString("Time", text.text);
         StopCoroutine(timerRoutine);
 
     }
