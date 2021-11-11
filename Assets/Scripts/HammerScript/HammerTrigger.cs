@@ -18,6 +18,7 @@ public class HammerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hello: " + other.name);
         if (other.gameObject.tag == "Target")
         {
             Executable ex = other.gameObject.GetComponent("Executable") as Executable;
