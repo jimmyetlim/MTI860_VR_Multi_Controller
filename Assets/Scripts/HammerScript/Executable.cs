@@ -42,10 +42,18 @@ public class Executable : MonoBehaviour
     private int count = 0;
     IEnumerator TimerExecute()
     {
-        count = 3;
+        count = 6;
         while (true)
         {
             count--;
+            if (text != null) {
+                if (count >= 0)
+                    text.text = "" + count;
+                else
+                    text.text = "Done";
+            }
+ 
+
             yield return new WaitForSeconds(1f);
             if (count <= 0) 
             {
@@ -53,5 +61,10 @@ public class Executable : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Demon detected the colision");
     }
 }

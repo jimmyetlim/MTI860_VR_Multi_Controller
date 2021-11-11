@@ -7,7 +7,7 @@ public class HammerTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.tag = "Hammer";
     }
 
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class HammerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hammer detected the colision");
         if (other.gameObject.tag == "Target")
         {
             Executable ex = other.gameObject.GetComponent("Executable") as Executable;
