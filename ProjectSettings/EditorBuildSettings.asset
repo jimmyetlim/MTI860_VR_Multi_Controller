@@ -4,31 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainGame.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Level/Maze.unity
-    guid: 2e9d77662b08e3e41b4fe4b851abace3
-  - enabled: 1
-    path: Assets/Scenes/Level/ObstacleInMiddle.unity
-    guid: 078ab86f977394d4dbd4837837b5a7da
-  - enabled: 1
-    path: Assets/Scenes/Level/SShapeCorridor.unity
-    guid: 2b78accdbb8669440ac026734f18526a
-  - enabled: 1
-    path: Assets/Scenes/Level/StraghtCorridor.unity
-    guid: eb448d0a1df41af4da1b8d8e787f9a26
-  - enabled: 1
-    path: Assets/Scenes/Level/TShapeCorridor.unity
-    guid: c44d56d69a983194e95e9cb0f3605cb0
+  m_Scenes: []
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a50d20b1626d3d240a662a5ce6b2cc65,
       type: 2}
-    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 754c8e643dc207c4688e889a4368687a,
-      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ee43f997c03df204896142e4045b3dda,
       type: 2}
-    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: b92d4de211ef93840ae7ffad5aefaca7,
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 9e87227d669776740965cb21059f1b3d,
       type: 2}
