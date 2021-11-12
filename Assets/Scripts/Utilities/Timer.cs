@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,10 @@ public class Timer : MonoBehaviour
     private float time { get; set; }
     private bool timerStop { get; set; }
 
+    // TODO JIMMY : Rename this
     [SerializeField]
-    private TextMesh text; 
+    private TextMesh text;
+    // TODO JIMMY :   ^ Rename this
 
     private Coroutine timerRoutine;
 
@@ -20,16 +23,15 @@ public class Timer : MonoBehaviour
         timerRoutine = StartCoroutine("TimerExecute");
     }
 
-	private void FixedUpdate()
-	{
-
+    private void FixedUpdate()
+    {
 
     }
 
 	public void Stop()
 	{
         timerStop = true;
-        PlayerPrefs.SetString("Time", text.text);
+        PlayerPrefs.SetString(Constant.PPK_TIMER_TIME, text.text);
         StopCoroutine(timerRoutine);
 
     }

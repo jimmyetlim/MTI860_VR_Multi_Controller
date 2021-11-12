@@ -6,18 +6,20 @@
 
 	- [Easy-Medium] Outputer le temps
 		- On doit sauvegarder le temps de chaque niveau. 
+		- Enregistrer le nom du joueur et le nom du mouvmenet
 		- Format de la sauvegarde :
-			Nom du mouvement - Nom du joueur - Temps d'exécution
+			Nom du mouvement - Nom du joueur - Stage - Temps d'exécution
 	
-	- [Easy-Medium] Faire le questionnaire de préférence de mouvement
-	
-	- [Easy] Randomizer
-		- Randomize l'emplacement des Démons pour TShapeCorridor (soit à droite, soit à gauche. Pas les deux en même temps)
+	- [Easy-Medium] Faire le questionnaire 
+		- de préférence de mouvement
+		- de niveau de confort
 
 	- [INSANE LEVEL] Trouver du monde pour essayer notre expérience
 
 	- [Expert Level] Rapport
 
+	- [Medium-High Level] Sauvegarder position des utilisateurs
+	
 Fixed, mais à valider
 	- [Urgent]Correct le movement WASD, Live il est pire 😋
 		-ajuster graviter et masse pour ne plus voler
@@ -35,3 +37,6 @@ Fixed, mais à valider
 		- Changement de scene est facile à trouver comme TUTO
 		- PlayerPrefs pour garder en mémoire le mode de controle!
 		- on start. on load le bon selon le playerpref
+		
+	- [Easy] Randomizer
+		- Randomize l'emplacement des Démons pour TShapeCorridor (soit à droite, soit à gauche. Pas les deux en même temps)

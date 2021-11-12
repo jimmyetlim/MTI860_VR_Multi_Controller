@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using Assets.Scripts.Movements;
 using UnityEngine;
 
@@ -9,7 +11,7 @@ public class MovementGen : MonoBehaviour
     private ChoiceOfMovement currentMovement;
 
     [SerializeField] private ChoiceOfMovement selectedMovement;
-
+    [SerializeField] private String nomDuJoueur = string.Empty;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +23,15 @@ public class MovementGen : MonoBehaviour
         components.Add(ChoiceOfMovement.joycon,     this.GetComponent<JoyCon.JoyConMovement>());
         components.Add(ChoiceOfMovement.omni,       this.GetComponent<OmniMovement>());
 
-        selectedMovement = (ChoiceOfMovement)PlayerPrefs.GetInt("mouvement", 0);
-        currentMovement = (ChoiceOfMovement)PlayerPrefs.GetInt("mouvement", 0);
+        selectedMovement = (ChoiceOfMovement)PlayerPrefs.GetInt(Constant.PPK_MOVEMENT_CHOICE, 0);
+        currentMovement = (ChoiceOfMovement)PlayerPrefs.GetInt(Constant.PPK_MOVEMENT_CHOICE, 0);
         components[currentMovement].enabled = true;
-       
+
+        if (nomDuJoueur == string.Empty)
+        {
+            nomDuJoueur = DateTime.Now.ToString("MM-dd HH:mm");
+        }
+        PlayerPrefs.SetString(Constant.PPK_PLAYER_NAME, nomDuJoueur);
     }
 
     // Update is called once per frame

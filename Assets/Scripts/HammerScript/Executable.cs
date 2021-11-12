@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
+using Assets.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.UI;
 using static MovementGen;
@@ -10,15 +12,17 @@ public class Executable : MonoBehaviour
     public Timer timer;
     public string NextScene;
     public TextMesh text;
-    public bool IsQuickTeleport = false;
     public bool noMovementChange = true;
     public bool bloquer = false;
     public ChoiceOfMovement nextMouv;
-    
+
+    // Si on veut skipper/bypasser le 5-4-3-2-1
+    public bool IsQuickTeleport = false;
+
     void Start()
     {
         //Set the tag of this GameObject to Player
-        gameObject.tag = "Target";
+        gameObject.tag = Constant.GT_TARGET;
         if(noMovementChange)
             text.text = "";
         else
@@ -35,7 +39,7 @@ public class Executable : MonoBehaviour
             }
             if (!noMovementChange)
             {
-                PlayerPrefs.SetInt("mouvement", (int)nextMouv);
+                PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
             }
             if (IsQuickTeleport)
             {
@@ -48,6 +52,7 @@ public class Executable : MonoBehaviour
         }
         
     }
+
     private int count = 0;
     IEnumerator TimerExecute()
     {
@@ -61,9 +66,10 @@ public class Executable : MonoBehaviour
                 else
                     text.text = "Done";
             }
- 
+
 
             yield return new WaitForSeconds(1.5f);
+            DataSaver.SaveTime();
             if (count <= 0) 
             {
                 SceneManager.LoadScene(NextScene);

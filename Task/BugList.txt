@@ -1,5 +1,4 @@
 Bug Unity Général : 
-	
 Bug Mouvement Joycon : 
 	Vitesse et mass a modifier : Déplacement trop rapide.
 	Direction ne suit pas la camera -> Incapable de tourner
