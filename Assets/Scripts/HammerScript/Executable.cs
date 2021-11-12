@@ -37,13 +37,15 @@ public class Executable : MonoBehaviour
             {
                 timer.Stop();
             }
+
             if (!noMovementChange)
             {
                 PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
             }
+
             if (IsQuickTeleport)
             {
-                SceneManager.LoadScene(NextScene);
+                LoadScene();
             }
             else
             {
@@ -70,12 +72,18 @@ public class Executable : MonoBehaviour
 
             yield return new WaitForSeconds(1.5f);
             DataSaver.SaveTime();
-            if (count <= 0) 
+            if (count <= 0)
             {
-                SceneManager.LoadScene(NextScene);
+                LoadScene();
             }
         }
 
+    }
+
+    private void LoadScene()
+    {
+        PlayerPrefs.SetString(Constant.PPK_SCENE_NAME, NextScene);
+        SceneManager.LoadScene(NextScene);
     }
 
     private void OnTriggerEnter(Collider other)
