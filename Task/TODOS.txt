@@ -1,19 +1,22 @@
 -General Element
-	- Outputer le temps
-		- On doit sauvegarder le temps de chaque niveau. 
-		- Format de la sauvegarde :
-			Nom du mouvement - Nom du joueur - Temps d'exécution
-	
-	- Faire le questionnaire de préférence de mouvement
-	
-	- Randomizer
-		- Randomize l'emplacement des aliens pour TShapeCorridor
-
 	- [Med-high level] Omni 
 		- Plug API
 		- interpreter data
 		- move
 
+	- [Easy-Medium] Outputer le temps
+		- On doit sauvegarder le temps de chaque niveau. 
+		- Format de la sauvegarde :
+			Nom du mouvement - Nom du joueur - Temps d'exécution
+	
+	- [Easy-Medium] Faire le questionnaire de préférence de mouvement
+	
+	- [Easy] Randomizer
+		- Randomize l'emplacement des Démons pour TShapeCorridor (soit à droite, soit à gauche. Pas les deux en même temps)
+
+	- [INSANE LEVEL] Trouver du monde pour essayer notre expérience
+
+	- [Expert Level] Rapport
 
 Fixed, mais à valider
 	- [Urgent]Correct le movement WASD, Live il est pire 😋
