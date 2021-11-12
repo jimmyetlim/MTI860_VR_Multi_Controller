@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Utilities
+﻿namespace Assets.Scripts.Utilities
 {
     class Position
     {
-        private float x { get; set; };
-        private float y { get; set; };
-        public Position(x, y) 
+        private float x { get; set; }
+        private float y { get; set; }
+
+        public Position(float x, float y) 
         {
             this.x = x;
             this.y = y;
+        }
+
+        public override string ToString()
+        {
+            return "[" + x.ToString() + "|" + y.ToString() + "]";
         }
     }
 }

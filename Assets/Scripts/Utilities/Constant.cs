@@ -8,9 +8,12 @@ namespace Assets.Scripts
 {
     class Constant
     {
+        public const string SEPARATOR = "-";
+
         // Files
         public const string FILE_PATH = ""; // DO NOT PUSH THIS, OR I KILL YOU... TWICE
-        public const string FILE_TIME = "TimeFile.txt";
+        public const string FILE_TIME = "TimeFile";
+        public const string FILE_EXTENSION = ".txt";
 
         // Game Tag
         public const string GT_TARGET = "Target";

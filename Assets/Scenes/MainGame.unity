@@ -6173,6 +6173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
         type: 3}
+      propertyPath: IsQuickTeleport
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
+        type: 3}
       propertyPath: noMovementChange
       value: 0
       objectReference: {fileID: 0}
@@ -10348,6 +10353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
         type: 3}
+      propertyPath: IsQuickTeleport
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
+        type: 3}
       propertyPath: noMovementChange
       value: 0
       objectReference: {fileID: 0}
@@ -10755,6 +10765,11 @@ PrefabInstance:
         type: 3}
       propertyPath: NextScene
       value: StraghtCorridor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
+        type: 3}
+      propertyPath: IsQuickTeleport
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3445185087018901932, guid: 1d0368ccaf6b0f6418f73a0180971465,
         type: 3}
