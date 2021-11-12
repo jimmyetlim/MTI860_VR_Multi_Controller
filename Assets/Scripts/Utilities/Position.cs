@@ -8,7 +8,12 @@ namespace Assets.Scripts.Utilities
 {
     class Position
     {
-        private float x;
-        private float y;
+        private float x { get; set; };
+        private float y { get; set; };
+        public Position(x, y) 
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

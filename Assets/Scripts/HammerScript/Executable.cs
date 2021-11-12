@@ -70,7 +70,7 @@ public class Executable : MonoBehaviour
             }
 
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.0f);
             DataSaver.SaveTime();
             if (count <= 0)
             {

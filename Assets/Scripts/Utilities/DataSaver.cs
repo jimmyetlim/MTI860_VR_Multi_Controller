@@ -20,7 +20,7 @@ namespace Assets.Scripts.Utilities
             writeToFile(toSave);
         }
 
-        public static void SavePosition()
+        public static void SavePosition(List<Position> position)
         {
             //TODO
         }
