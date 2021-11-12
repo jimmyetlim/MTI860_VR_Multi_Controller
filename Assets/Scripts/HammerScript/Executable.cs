@@ -12,6 +12,7 @@ public class Executable : MonoBehaviour
     public TextMesh text;
     public bool IsQuickTeleport = false;
     public bool noMovementChange = true;
+    public bool bloquer = false;
     public ChoiceOfMovement nextMouv;
     
     void Start()
@@ -26,22 +27,26 @@ public class Executable : MonoBehaviour
 
     public void Execute() 
     {
-        if (timer) 
-        {
-            timer.Stop();
+		if (!bloquer) {
+            bloquer = true;
+            if (timer)
+            {
+                timer.Stop();
+            }
+            if (!noMovementChange)
+            {
+                PlayerPrefs.SetInt("mouvement", (int)nextMouv);
+            }
+            if (IsQuickTeleport)
+            {
+                SceneManager.LoadScene(NextScene);
+            }
+            else
+            {
+                StartCoroutine("TimerExecute");
+            }
         }
-        if (!noMovementChange) 
-        {
-            PlayerPrefs.SetInt("mouvement", (int)nextMouv);
-        }
-        if (IsQuickTeleport)
-        {
-            SceneManager.LoadScene(NextScene);
-        }
-        else 
-        {
-             StartCoroutine("TimerExecute");
-        }
+        
     }
     private int count = 0;
     IEnumerator TimerExecute()
@@ -58,7 +63,7 @@ public class Executable : MonoBehaviour
             }
  
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             if (count <= 0) 
             {
                 SceneManager.LoadScene(NextScene);
