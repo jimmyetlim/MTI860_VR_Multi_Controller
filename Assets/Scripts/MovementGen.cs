@@ -21,9 +21,10 @@ public class MovementGen : MonoBehaviour
         components.Add(ChoiceOfMovement.joycon,     this.GetComponent<JoyCon.JoyConMovement>());
         components.Add(ChoiceOfMovement.omni,       this.GetComponent<OmniMovement>());
 
-        selectedMovement = ChoiceOfMovement.wasd;
-        currentMovement = ChoiceOfMovement.wasd;
+        selectedMovement = (ChoiceOfMovement)PlayerPrefs.GetInt("mouvement", 0);
+        currentMovement = (ChoiceOfMovement)PlayerPrefs.GetInt("mouvement", 0);
         components[currentMovement].enabled = true;
+       
     }
 
     // Update is called once per frame

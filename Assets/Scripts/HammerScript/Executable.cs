@@ -18,6 +18,10 @@ public class Executable : MonoBehaviour
     {
         //Set the tag of this GameObject to Player
         gameObject.tag = "Target";
+        if(noMovementChange)
+            text.text = "";
+        else
+            text.text = nextMouv.ToString();
     }
 
     public void Execute() 
