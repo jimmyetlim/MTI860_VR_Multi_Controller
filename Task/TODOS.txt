@@ -1,4 +1,26 @@
 -General Element
+	- Outputer le temps
+		- On doit sauvegarder le temps de chaque niveau. 
+		- Format de la sauvegarde :
+			Nom du mouvement - Nom du joueur - Temps d'exécution
+	
+	- Faire le questionnaire de préférence de mouvement
+	
+	- Randomizer
+		- Randomize l'emplacement des aliens pour TShapeCorridor
+
+	- [Med-high level] Omni 
+		- Plug API
+		- interpreter data
+		- move
+
+
+Fixed, mais à valider
+	- [Urgent]Correct le movement WASD, Live il est pire 😋
+		-ajuster graviter et masse pour ne plus voler
+	
+[DONE] 
+	- [Easy - Med Level] Level design
 	- [Easy Level] Hit Ennemie to trigger on hit event
 		- Ajouter collider au marteaux
 		- detecter la collission ennemi et marteaux
@@ -10,15 +32,3 @@
 		- Changement de scene est facile à trouver comme TUTO
 		- PlayerPrefs pour garder en mémoire le mode de controle!
 		- on start. on load le bon selon le playerpref
-
-	- [Med-high level] Omni 
-		- Plug API
-		- interpreter data
-		- move
-
-
-Fixed, mais à valider
-	- [Urgent]Correct le movement WASD, Live il est pire 😋
-		-ajuster graviter et masse pour ne plus voler
-		
-	- [Easy - Med Level] Level design

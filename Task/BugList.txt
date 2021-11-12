@@ -1,8 +1,15 @@
 Bug Unity Général : 
-	- [Done!]Incapable que lorsque j'appuie sur "Play", le jeu soit render dans mon casque. Je suis obligé de build and run à chaque fois. Problème : Incapable de modifier de mouvement en VR
-Bug WASDmovement avec VR controllers : 
-	- [Pire]quand tourne + avance au max, Character est propulser
-Bug Teleport : 
-	- Teleport la camera sans notre ami le peinguin :(.
-	- Marche juste si on bouge (Script WASD) avant
+	- Apès avoir frapper le démon, on voit 5-3-1 au lieu de voir 5-4-3-2-1
+Bug Mouvement Joycon : 
+	Vitesse et mass a modifier : Déplacement trop rapide.
+	Direction ne suit pas la camera -> Incapable de tourner
+
 	
+[DONE]
+Bug Unity Général : 
+	[DONE]- Incapable que lorsque j'appuie sur "Play", le jeu soit render dans mon casque. Je suis obligé de build and run à chaque fois. Problème : Incapable de modifier de mouvement en VR
+Bug WASDmovement avec VR controllers : 
+	[DONE]- quand tourne + avance au max, Character est propulser
+Bug Teleport : 
+	[DONE]- Teleport la camera sans notre ami le peinguin :(.
+	[DONE]- Marche juste si on bouge (Script WASD) avant
