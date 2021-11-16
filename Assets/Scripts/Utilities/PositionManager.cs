@@ -1,3 +1,4 @@
+using Assets.Scripts.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,13 @@ using UnityEngine;
 public class PositionManager : MonoBehaviour
 {
     public GameObject player;
-    public List<Position>  data;
+    private List<Position>  data;
     public bool notSended = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        data = "";
+        data = new List<Position>();
         StartCoroutine("TackerExecute");
     }
 
@@ -30,7 +31,7 @@ public class PositionManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
     }
-    public sendData() 
+    public void sendData() 
     {
         notSended = false;
         DataSaver.SavePosition(data);
