@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Movements;
+﻿ using Assets.Scripts.Movements;
 using UnityEngine;
 
 namespace JoyCon
@@ -31,8 +31,12 @@ namespace JoyCon
 
         private void Update()
         {
-            Joycon j = JoyConManager.GetJoycon(JcLegInd);
-            _playerDirection = j.GetButton(Joycon.Button.SHOULDER_2) ? Vector3.back : Vector3.forward;      
+
+            //Joycon j = JoyConManager.GetJoycon(JcLegInd);
+            //_playerDirection = j.GetButton(Joycon.Button.SHOULDER_2) ? Vector3.back : Vector3.forward;
+
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            transform.Rotate(0.0f, moveHorizontal * constSpeed * 2, 0.0f);
         }
 
         private void FixedUpdate()
