@@ -1,26 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-public class RandomDemonSpawn : MonoBehaviour
+namespace Assets.Scripts
 {
-    public GameObject[] listeCommeTuVeux;
-
-    // Start is called before the first frame update
-    void Start()
+    public class RandomDemonSpawn : MonoBehaviour
     {
-        Random rnd = new Random();
-        int card = rnd.Next(1, 3);
+        public GameObject[] listeCommeTuVeux;
 
-        listeCommeTuVeux[0].SetActive(card == 1);
-        listeCommeTuVeux[1].SetActive(card != 1);
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            Random rnd = new Random();
+            int card = rnd.Next(1, 3);
 
-    // Update is called once per frame
-    void Update()
-    {
+            listeCommeTuVeux[0].SetActive(card == 1);
+            listeCommeTuVeux[1].SetActive(card != 1);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

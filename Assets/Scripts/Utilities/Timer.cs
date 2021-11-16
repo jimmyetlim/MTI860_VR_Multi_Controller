@@ -1,53 +1,53 @@
 using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+namespace Assets.Scripts.Utilities
 {
-    private float time { get; set; }
-    private bool timerStop { get; set; }
-
-    // TODO JIMMY : Rename this
-    [SerializeField]
-    private TextMesh text;
-    // TODO JIMMY :   ^ Rename this
-
-    private Coroutine timerRoutine;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Timer : MonoBehaviour
     {
-        time = 0;
-        timerRoutine = StartCoroutine("TimerExecute");
-    }
+        private float time { get; set; }
+        private bool timerStop { get; set; }
 
-    private void FixedUpdate()
-    {
+        // TODO JIMMY : Rename this
+        [SerializeField]
+        private TextMesh text;
+        // TODO JIMMY :   ^ Rename this
 
-    }
+        private Coroutine timerRoutine;
 
-	public void Stop()
-	{
-        timerStop = true;
-        PlayerPrefs.SetString(Constant.PPK_TIMER_TIME, text.text);
-        StopCoroutine(timerRoutine);
-
-    }
-
-	IEnumerator TimerExecute()
-	{
-        while (true) 
+        // Start is called before the first frame update
+        void Start()
         {
-            if (!timerStop)
-            {
-                time += 0.1f;
-                if (text != null)
-                    text.text = ""+ (Mathf.Round(time * 10) * 0.1f).ToString("F1");
-                yield return new WaitForSeconds(.1f);
-            }
+            time = 0;
+            timerRoutine = StartCoroutine("TimerExecute");
         }
+
+        private void FixedUpdate()
+        {
+
+        }
+
+        public void Stop()
+        {
+            timerStop = true;
+            PlayerPrefs.SetString(Constant.PPK_TIMER_TIME, text.text);
+            StopCoroutine(timerRoutine);
+
+        }
+
+        IEnumerator TimerExecute()
+        {
+            while (true) 
+            {
+                if (!timerStop)
+                {
+                    time += 0.1f;
+                    if (text != null)
+                        text.text = ""+ (Mathf.Round(time * 10) * 0.1f).ToString("F1");
+                    yield return new WaitForSeconds(.1f);
+                }
+            }
        
-	}
+        }
+    }
 }

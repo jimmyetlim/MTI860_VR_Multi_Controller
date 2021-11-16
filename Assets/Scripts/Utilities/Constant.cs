@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts
+﻿namespace Assets.Scripts.Utilities
 {
-    class Constant
+    public class Constant
     {
         public const string SEPARATOR = "-";
 

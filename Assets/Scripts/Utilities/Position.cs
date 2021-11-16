@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Utilities
 {
-    class Position
+    public class Position
     {
         private float x { get; set; }
         private float y { get; set; }

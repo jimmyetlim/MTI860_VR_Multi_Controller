@@ -1,93 +1,93 @@
 using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
 using Assets.Scripts.Utilities;
 using UnityEngine;
-using UnityEngine.UI;
-using static MovementGen;
 using UnityEngine.SceneManagement;
+using static Assets.Scripts.MovementGen;
 
-public class Executable : MonoBehaviour
+namespace Assets.Scripts.HammerScript
 {
-    public Timer timer;
-    public string NextScene;
-    public TextMesh text;
-    public bool noMovementChange = true;
-    public bool bloquer = false;
-    public ChoiceOfMovement nextMouv;
-
-    // Si on veut skipper/bypasser le 5-4-3-2-1
-    public bool IsQuickTeleport = false;
-
-    void Start()
+    public class Executable : MonoBehaviour
     {
-        //Set the tag of this GameObject to Player
-        gameObject.tag = Constant.GT_TARGET;
-        if(noMovementChange)
-            text.text = "";
-        else
-            text.text = nextMouv.ToString();
-    }
+        public Timer timer;
+        public string NextScene;
+        public TextMesh text;
+        public bool noMovementChange = true;
+        public bool bloquer = false;
+        public ChoiceOfMovement nextMouv;
 
-    public void Execute() 
-    {
-		if (!bloquer) {
-            bloquer = true;
-            if (timer)
-            {
-                timer.Stop();
-            }
+        // Si on veut skipper/bypasser le 5-4-3-2-1
+        public bool IsQuickTeleport = false;
 
-            if (!noMovementChange)
-            {
-                PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
-            }
-
-            if (IsQuickTeleport)
-            {
-                LoadScene();
-            }
-            else
-            {
-                StartCoroutine("TimerExecute");
-            }
-        }
-        
-    }
-
-    private int count = 0;
-    IEnumerator TimerExecute()
-    {
-        count = 6;
-        while (true)
+        void Start()
         {
-            count--;
-            if (text != null) {
-                if (count >= 0)
-                    text.text = "" + count;
-                else
-                    text.text = "Done";
-            }
-
-
-            yield return new WaitForSeconds(1.0f);
-            DataSaver.SaveTime();
-            if (count <= 0)
-            {
-                LoadScene();
-            }
+            //Set the tag of this GameObject to Player
+            gameObject.tag = Constant.GT_TARGET;
+            if(noMovementChange)
+                text.text = "";
+            else
+                text.text = nextMouv.ToString();
         }
 
-    }
+        public void Execute() 
+        {
+            if (!bloquer) {
+                bloquer = true;
+                if (timer)
+                {
+                    timer.Stop();
+                }
 
-    private void LoadScene()
-    {
-        PlayerPrefs.SetString(Constant.PPK_SCENE_NAME, NextScene);
-        SceneManager.LoadScene(NextScene);
-    }
+                if (!noMovementChange)
+                {
+                    PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
+                }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Demon detected the colision");
+                if (IsQuickTeleport)
+                {
+                    LoadScene();
+                }
+                else
+                {
+                    StartCoroutine("TimerExecute");
+                }
+            }
+        
+        }
+
+        private int count = 0;
+        private IEnumerator TimerExecute()
+        {
+            count = 6;
+            while (true)
+            {
+                count--;
+                if (text != null) {
+                    if (count >= 0)
+                        text.text = "" + count;
+                    else
+                        text.text = "Done";
+                }
+
+
+                yield return new WaitForSeconds(1.0f);
+                DataSaver.SaveTime();
+                if (count <= 0)
+                {
+                    LoadScene();
+                }
+            }
+
+        }
+
+        private void LoadScene()
+        {
+            PlayerPrefs.SetString(Constant.PPK_SCENE_NAME, NextScene);
+            SceneManager.LoadScene(NextScene);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Demon detected the colision");
+        }
     }
 }
