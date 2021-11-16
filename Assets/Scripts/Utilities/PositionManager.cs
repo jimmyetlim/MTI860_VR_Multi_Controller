@@ -8,13 +8,14 @@ namespace Assets.Scripts.Utilities
     {
         public GameObject player;
         private List<Position>  data;
-        public bool notSended = true;
+        public bool dataSend = false;
 
         // Start is called before the first frame update
         void Start()
         {
             data = new List<Position>();
             StartCoroutine("TackerExecute");
+            gameObject.tag = "Djigby";
         }
 
         // Update is called once per frame
@@ -23,19 +24,24 @@ namespace Assets.Scripts.Utilities
         
         }
 
-
         IEnumerator TackerExecute()
         {
-            while (notSended)
+            while (!dataSend)
             {
-                data.Add(new Position(player.transform.position.x, player.transform.position.y));
+                data.Add(new Position(player.transform.position.x, player.transform.position.z));
                 yield return new WaitForSeconds(1.0f);
             }
         }
-        public void sendData() 
+
+        public void StopSavingPosition()
         {
-            notSended = false;
-            DataSaver.SavePosition(data);
+            dataSend = true;
+        }
+
+        public List<Position> SendData() 
+        {
+            dataSend = true;
+            return data;
         }
 
     }

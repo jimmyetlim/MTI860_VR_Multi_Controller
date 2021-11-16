@@ -7,6 +7,7 @@ TagManager:
   - TeleportationScriptsList
   - Target
   - Hammer
+  - Djigby
   layers:
   - Default
   - TransparentFX

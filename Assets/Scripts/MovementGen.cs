@@ -30,7 +30,7 @@ namespace Assets.Scripts
 
             if (nomDuJoueur == string.Empty)
             {
-                nomDuJoueur = DateTime.Now.ToString("MM-dd HH:mm");
+                nomDuJoueur = DateTime.Now.ToString("YYYY-MM-dd_HH-mm");
             }
             PlayerPrefs.SetString(Constant.PPK_PLAYER_NAME, nomDuJoueur);
         }

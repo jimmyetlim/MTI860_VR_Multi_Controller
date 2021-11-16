@@ -19,7 +19,7 @@ namespace Assets.Scripts.HammerScript
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Hammer detected the colision");
+            //Debug.Log("Hammer detected the colision");
             if (other.gameObject.tag == Constant.GT_TARGET)
             {
                 Executable ex = other.gameObject.GetComponent("Executable") as Executable;

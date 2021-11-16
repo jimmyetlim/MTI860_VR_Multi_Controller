@@ -15,6 +15,7 @@ namespace Assets.Scripts.HammerScript
         public ChoiceOfMovement nextMouv;
 
         public MovementGen target;
+        public PositionManager positionManager;
 
         public bool noMovementChange = true;
         public bool changeMouvementForPractice = false;
@@ -26,6 +27,8 @@ namespace Assets.Scripts.HammerScript
 
         void Start()
         {
+            positionManager = GameObject.FindGameObjectsWithTag("Djigby")[0].GetComponent<PositionManager>();
+
             //Set the tag of this GameObject to Player
             gameObject.tag = Constant.GT_TARGET;
             if(noMovementChange)
@@ -55,7 +58,6 @@ namespace Assets.Scripts.HammerScript
                 else if (changeMouvementForPractice)
                 {
                     StartCoroutine("Practice");
-                    //LoadChangeMouvement();
                 }
                 else
                 {
@@ -68,12 +70,14 @@ namespace Assets.Scripts.HammerScript
         private int count = 0;
         private IEnumerator TimerExecute()
         {
-            count = 6;
+            count = 4;
+            positionManager.StopSavingPosition();
+
             while (true)
             {
                 count--;
                 if (text != null) {
-                    if (count >= 0)
+                    if (count > 0)
                         text.text = "" + count;
                     else
                         text.text = "Done";
@@ -83,6 +87,7 @@ namespace Assets.Scripts.HammerScript
                 if (count <= 0)
                 {
                     DataSaver.SaveTime();
+                    DataSaver.SavePosition(positionManager.SendData());
                     LoadScene();
                 }
             }
@@ -109,7 +114,7 @@ namespace Assets.Scripts.HammerScript
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Demon detected the colision");
+            //Debug.Log("Demon detected the colision");
         }
     }
 }
