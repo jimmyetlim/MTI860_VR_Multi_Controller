@@ -6,6 +6,7 @@
 
         // Files
         public const string FILE_PATH = ""; // DO NOT PUSH THIS, OR I KILL YOU... TWICE
+        public const string FILE_INSIDE_PROJECT_PATH = "Task/Times/";
         public const string FILE_TIME = "TimeFile";
         public const string FILE_EXTENSION = ".txt";
 

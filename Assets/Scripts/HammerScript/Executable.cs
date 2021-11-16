@@ -9,14 +9,20 @@ namespace Assets.Scripts.HammerScript
     public class Executable : MonoBehaviour
     {
         public Timer timer;
-        public string NextScene;
         public TextMesh text;
-        public bool noMovementChange = true;
-        public bool bloquer = false;
+
+        public string NextScene;
         public ChoiceOfMovement nextMouv;
+
+        public MovementGen target;
+
+        public bool noMovementChange = true;
+        public bool changeMouvementForPractice = false;
 
         // Si on veut skipper/bypasser le 5-4-3-2-1
         public bool IsQuickTeleport = false;
+
+        private bool prevent_hit_twice = false;
 
         void Start()
         {
@@ -30,8 +36,8 @@ namespace Assets.Scripts.HammerScript
 
         public void Execute() 
         {
-            if (!bloquer) {
-                bloquer = true;
+            if (!prevent_hit_twice) {
+                prevent_hit_twice = true;
                 if (timer)
                 {
                     timer.Stop();
@@ -45,6 +51,11 @@ namespace Assets.Scripts.HammerScript
                 if (IsQuickTeleport)
                 {
                     LoadScene();
+                }
+                else if (changeMouvementForPractice)
+                {
+                    StartCoroutine("Practice");
+                    //LoadChangeMouvement();
                 }
                 else
                 {
@@ -68,15 +79,26 @@ namespace Assets.Scripts.HammerScript
                         text.text = "Done";
                 }
 
-
                 yield return new WaitForSeconds(1.0f);
-                DataSaver.SaveTime();
                 if (count <= 0)
                 {
+                    DataSaver.SaveTime();
                     LoadScene();
                 }
             }
+        }
 
+        private IEnumerator Practice()
+        {
+            yield return new WaitForSeconds(2);
+            PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
+            target.ChangeMovement(nextMouv);
+        }
+
+        private void LoadChangeMouvement()
+        {
+            PlayerPrefs.SetInt(Constant.PPK_MOVEMENT_CHOICE, (int)nextMouv);
+            target.ChangeMovement(nextMouv);
         }
 
         private void LoadScene()
