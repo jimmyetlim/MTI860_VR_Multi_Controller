@@ -105,11 +105,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Single NewAction
+        public virtual SteamVR_Action_Vector2 movement
         {
             get
             {
-                return SteamVR_Actions.default_NewAction;
+                return SteamVR_Actions.default_movement;
             }
         }
         

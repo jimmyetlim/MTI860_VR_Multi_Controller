@@ -50,8 +50,9 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/NewAction",
-      "type": "vector1"
+      "name": "/actions/default/in/movement",
+      "type": "vector2",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/default/out/Haptic",

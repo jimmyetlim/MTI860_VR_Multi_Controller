@@ -31,7 +31,7 @@ public class OmniConnectWebRequest : MonoBehaviour
         {
             yield return web.SendWebRequest();
 
-            if (web.isNetworkError || web.isHttpError)
+            if (web.isNetworkError || web.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.LogError("OmniSDK: OmniConnectWebRequest failed get request at " + url + ": " + web.error + ". Ensure that Omni Connect is installed and running on your system.");
                 result("Error");
