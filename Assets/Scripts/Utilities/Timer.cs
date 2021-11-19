@@ -10,8 +10,9 @@ namespace Assets.Scripts.Utilities
 
         // TODO JIMMY : Rename this
         [SerializeField]
-        private TextMesh text;
+        private TextMesh textmesh;
         // TODO JIMMY :   ^ Rename this
+
 
         private Coroutine timerRoutine;
 
@@ -30,7 +31,7 @@ namespace Assets.Scripts.Utilities
         public void Stop()
         {
             timerStop = true;
-            PlayerPrefs.SetString(Constant.PPK_TIMER_TIME, text.text);
+            PlayerPrefs.SetString(Constant.PPK_TIMER_TIME, textmesh.text);
             StopCoroutine(timerRoutine);
 
         }
@@ -42,8 +43,8 @@ namespace Assets.Scripts.Utilities
                 if (!timerStop)
                 {
                     time += 0.1f;
-                    if (text != null)
-                        text.text = ""+ (Mathf.Round(time * 10) * 0.1f).ToString("F1");
+                    if (textmesh != null)
+                        textmesh.text = ""+ (Mathf.Round(time * 10) * 0.1f).ToString("F1");
                     yield return new WaitForSeconds(.1f);
                 }
             }
