@@ -158,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 6126321952314205284, guid: 2c375dba610d6c24c84f9941cfd92de9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6126321952314205284, guid: 2c375dba610d6c24c84f9941cfd92de9,
         type: 3}
@@ -670,7 +670,7 @@ PrefabInstance:
     - target: {fileID: 3445185086766923860, guid: 1d0368ccaf6b0f6418f73a0180971465,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3445185086766923860, guid: 1d0368ccaf6b0f6418f73a0180971465,
         type: 3}
@@ -4069,6 +4069,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3224832257380790173, guid: cdbac44d9cb15a04684f19dd29e2f2db,
+        type: 3}
+      propertyPath: textmesh
+      value: 
+      objectReference: {fileID: 1616694660}
     - target: {fileID: 4216049522789318228, guid: cdbac44d9cb15a04684f19dd29e2f2db,
         type: 3}
       propertyPath: m_Name
@@ -5039,6 +5044,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 0.7}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!102 &1616694660 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 3224832257380790146, guid: cdbac44d9cb15a04684f19dd29e2f2db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1310467341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1629118119
 PrefabInstance:
   m_ObjectHideFlags: 0
