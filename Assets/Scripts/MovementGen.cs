@@ -31,6 +31,9 @@ namespace Assets.Scripts
         // Update is called once per frame
         void FixedUpdate()
         {
+	if(OVRInput.GetDown(OVRInput.RawButton.X)){
+		selectedMovement =ChoiceOfMovement.wasd;
+	}
             if(selectedMovement != currentMovement)
             {
                 if (components[currentMovement] is IScriptDeMovement)
